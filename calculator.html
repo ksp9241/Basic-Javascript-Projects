@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 6-calculator.html */
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .calculator{
+            flex: 0 0 25%;
+            overflow: hidden;
+        }
+
+        .screen{
+            width: 100%;
+            border: none;
+            background-color: rgba(41,41,56);
+            font-size: 40px;
+            color: white;
+            padding: 20px 10px;
+        }
+
+        .buttons{
+            display: flex;
+            flex-wrap: wrap;
+            transition: all ease 0.5s;
+        }
+
+        .btn{
+            flex: 0 0 25%;
+            cursor: pointer;
+            border: 1px solid black;
+            padding: 10px 0;
+            font-size: 30px;
+            outline: none;
+        }
+
+        .btn-yellow{
+            background-color: rgb(245,146,62);
+            color: white;
+        }
+
+        .btn-grey{
+            background-color: rgb(224,224,224);
+        }
+        .btn-clear{
+            background-color: #f44336;
+            cursor: pointer;
+            border: 1px solid black;
+            padding: 10px 0;
+            font-size: 30px;
+            flex: 0 0 25%;
+            outline: none;
+        }
+        .btn-equall{
+            background-color: green;
+            color: white;
+            cursor: pointer;
+            border: 1px solid black;
+            padding: 10px 0;
+            font-size: 30px;
+            flex: 0 0 25%;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE CONTENT -->
+    <section class="calculator">
+        <!-- SCREEN -->
+        <form>
+            <input type="text" placeholder="0" class="screen">
+        </form>
+        <!-- SCREEN -->
+        
+        <!-- BUTTONS -->
+        <div class="buttons">
+            <!-- yellow buttons -->
+            <button type="button" class="btn btn-yellow" data-prop="*">*</button>
+            <button type="button" class="btn btn-yellow" data-prop="/">/</button>
+            <button type="button" class="btn btn-yellow" data-prop="+">+</button>
+            <button type="button" class="btn btn-yellow" data-prop="-">-</button>
+            
+            <!-- grey buttons -->
+            <button type="button" class="btn btn-grey" data-prop=".">.</button>
+            <button type="button" class="btn btn-grey" data-prop="9">9</button>
+            <button type="button" class="btn btn-grey" data-prop="8">8</button>
+            <button type="button" class="btn btn-grey" data-prop="7">7</button>
+            <button type="button" class="btn btn-grey" data-prop="6">6</button>
+            <button type="button" class="btn btn-grey" data-prop="5">5</button>
+            <button type="button" class="btn btn-grey" data-prop="4">4</button>
+            <button type="button" class="btn btn-grey" data-prop="3">3</button>
+            <button type="button" class="btn btn-grey" data-prop="2">2</button>
+            <button type="button" class="btn btn-grey" data-prop="1">1</button>
+            <button type="button" class="btn btn-grey" data-prop="0">0</button>
+            
+            <button type="button" class="btn-equall">=</button>
+            <button type="button" class="btn-clear">C</button>
+        </div>
+        <!-- BUTTONS -->
+    </section>
+    <!-- PAGE CONTENT -->
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const btns = document.querySelectorAll('.btn');
+        const screen = document.querySelector('.screen');
+        const btnEquall = document.querySelector('.btn-equall');
+        const btnClear = document.querySelector('.btn-clear');
+
+        for(let i=0;i<btns.length;i++){
+            btns[i].addEventListener('click', function(){
+            var number = btns[i].getAttribute('data-prop');
+            screen.value+= number;
+            });
+        }
+
+        btnEquall.addEventListener('click', function(){
+            if(screen.value === ""){
+                screen.value = "";
+            }else{
+            var value = eval(screen.value);
+            screen.value = value;
+            }
+        });
+
+        btnClear.addEventListener('click', function(){
+            screen.value= "";
+        });
+    </script>
+    <!-- JAVASCRIPT -->
+</body>
+</html>
