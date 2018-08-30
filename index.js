@@ -131,29 +131,128 @@
 
 //7-digital-clock.html
 //************************************************************************* */
-function showClock(){
-    var date = new Date();
-    var hours = date.getHours();
-    var mins = date.getMinutes()
-    var seconds = date.getSeconds();
-    var showTime = document.getElementById("clock");
-    var formatHours = convertFormat(hours);
-    var hour = checkTime(hours);
-    showTime.innerHTML = `${hour} : ${mins} : ${seconds} ${formatHours}`;
+// function showClock(){
+//     var date = new Date();
+//     var hours = date.getHours();
+//     var mins = date.getMinutes()
+//     var seconds = date.getSeconds();
+//     var showTime = document.getElementById("clock");
+//     var formatHours = convertFormat(hours);
+//     var hour = checkTime(hours);
+//     showTime.innerHTML = `${hour} : ${mins} : ${seconds} ${formatHours}`;
+// }
+// function convertFormat(time){
+//     var am = "AM";
+//     if(time >12){ am = "PM"; }
+//     return am;
+// }
+// function checkTime(time){
+//     time >=12 ? time = time-12 : time=time;
+//     time < 10 ? time = '0'+time : time=time;
+//     time === "00" ? time = 12 : time = time;
+//     return time;
+// }
+// showClock();
+// setInterval(showClock,1000);
+
+//8-navbar.html
+//************************************************************************* */
+// const navbarBtn = document.querySelector(".navbar-btn");
+// const navbarLinks = document.querySelector(".navbar-links");
+
+// navbarBtn.addEventListener('click', function(){
+//     var val = navbarLinks.classList.contains('navbarCollapse');
+    
+//     if(val){
+//         navbarLinks.classList.remove('navbarCollapse');
+//         navbarBtn.classList.remove('close');
+//     }else{
+//         navbarLinks.classList.add('navbarCollapse');
+//         navbarBtn.classList.add('close');
+//     }
+// });
+
+
+// 9-event-count-down.html
+//************************************************************************* */
+var screen = document.getElementById("screen");
+var day = document.getElementById("day");
+var hour = document.getElementById("hour");
+var min = document.getElementById("min");
+var sec = document.getElementById("sec");
+function setup(){
+    var now = new Date();
+    var eventDate = new Date('2018,09,31');
+    var curretTime = now.getTime();
+    var eventTime = eventDate.getTime();
+    var remTime = (eventTime - curretTime);
+    var ct = convertTime(remTime);
+    day.innerHTML = `${ct[0]} <span> Days </span>`;
+    hour.innerHTML = `${ct[1]} <span> Hours </span>`;
+    min.innerHTML = `${ct[2]} <span> Mins </span>`;
+    sec.innerHTML = `${ct[3]} <span> Sec </span>`;
 }
-function convertFormat(time){
-    var am = "AM";
-    if(time >12){ am = "PM"; }
-    return am;
+function convertTime(milliSecond){
+    var s , m , h , d;
+    s = Math.floor(milliSecond/1000); //Seconds
+    m = Math.floor(s/60);             //Minutes in seconds
+    h = Math.floor(m/60);             //Hours in seconds
+    d = Math.floor(h/24);             //Actual remaining Days
+    s = s % 60;         //Actual remaining Seconds
+    m = m % 60;         //Actual remaining Minutes
+    h = h % 24;         //Actual remaining Hours
+    var conVal = [d,h,m,s];
+    // return(`day${d} : Days ${h} : Hours ${m} : Minutes ${s} : Seconds`);
+    return conVal;
 }
-function checkTime(time){
-    time >=12 ? time = time-12 : time=time;
-    time < 10 ? time = '0'+time : time=time;
-    time === "00" ? time = 12 : time = time;
-    return time;
-}
-showClock();
-setInterval(showClock,1000);
+setup();
+setInterval(setup,1000);
+
+
+
+
+
+
+
+    
+    
+// function setup(){
+//     var now = new Date();
+//     var eventDate = new Date('08/30/2018');
+//     var curretTime = now.getTime();
+//     var eventTime = eventDate.getTime();
+    
+//     days.innerHTML = converTime(eventTime);
+
+//     setInterval(converTime,1000);
+// }
+
+// setup();
+
+// function convertSeconds(s){
+//     var min = Math.floor(s/60);
+//     var sec = s%60;
+//     return `${min} : ${sec}`;
+// }
+
+// function setup(){
+//     var counter = document.getElementById("counter");
+//     var count = 0;
+//     var timeLeft = 1440;
+    
+//     function countIt(){
+//         count++;
+//         counter.innerHTML = convertSeconds(timeLeft - count);
+//     }
+    
+// setInterval(countIt,1000);
+// }
+
+// setup();
+
+
+
+
 
 
 

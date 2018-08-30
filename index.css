@@ -109,12 +109,12 @@ html, body {
 }
 
 /* 6-calculator.html */
-body{
+/* body{
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 .calculator{
     flex: 0 0 95%;
     overflow: hidden;
@@ -173,6 +173,9 @@ body{
 }
 
 /* 7-digital-clock.html */
+/* body{
+    margin: 20px;
+} */
 .clock-wrapper{
     background-color: black;
 }
@@ -182,3 +185,108 @@ body{
     color: white;
     padding: 20px;
 }
+
+/* 8-navbar.html */
+.navbar-btn{
+    cursor: pointer;
+    border: 3px solid brown;
+    display: inline-block;
+    padding: 5px 10px;
+}
+.bar{
+    width: 30px;
+    height: 3px;
+    background-color: brown;
+    margin: 5px 0;
+    transition: all ease 0.5s; 
+}
+
+.close .bar1{
+    transform: rotate(-45deg) translate(-6px,4px);
+}
+.close .bar2{
+    opacity: 0;
+}
+.close .bar3{
+    transform: rotate(45deg) translate(-6px,-6px);
+}
+
+.navbar-links{
+    background-color: #31393e;
+    transform: translateX(-800px);
+    overflow: hidden;
+    transition: all ease 0.5s; 
+}
+
+.navbar-links.navbarCollapse{
+    transform: translateX(0px);
+}
+
+.navbar-links ul{
+    margin: 0;
+    padding: 0;
+    padding: 15px;
+}
+.navbar-links li{
+    list-style: none;
+    margin: 5px 0;
+}
+.navbar-links a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block;
+    font-size: 18px;
+}
+
+/* 9-event-count-down.html */
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to top, #4e8397, #679896, #8ea998, #b5b9a5, #d5cabd);
+}
+#screen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #18323d;
+    margin: 0 10px
+}
+.count-down{
+    color: black;
+    text-align:center;
+    width: 100%;
+}
+.count-down h2{
+    text-transform: uppercase;
+    color: white;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+.count-down h4{
+    font-size: 40px;
+    margin: 0 1px;
+    padding: 10px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    flex-basis: 25%;
+    background: rgb(242,245,246); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(242,245,246,1) 0%, rgba(227,234,237,1) 37%, rgba(200,215,220,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.count-down span{
+    font-size: 15px;
+    display: block;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+
+.count-down .sec{
+    text-align: center;
+}
+
